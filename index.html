@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayActive – Your Mac, Always Ready.</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2j+PxX0S-tfAyitqU2KjGSA0oOkwxyaZgFNjQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA4_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'YOUR_GA4_MEASUREMENT_ID'); // REPLACE WITH YOUR ACTUAL GA4 MEASUREMENT ID
+    </script>
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <img src="icon.png" alt="StayActive Icon" class="app-icon">
+                <h1>StayActive</h1>
+                <p class="tagline">A simple macOS utility to keep your Mac active and prevent sleep.</p>
+                <p class="description">StayActive is a minimalist macOS utility that silently prevents your Mac from going idle, ensuring your screen stays on and your background tasks run without interruption. Simple, discreet, essential.</p>
+
+                <div class="download-cta">
+                    <a href="https://github.com/zeeshan1112/StayActive/releases/download/v1.0.0/StayActive_1.0.0_AppleSilicon.dmg" class="button primary-button download-button" data-os="Apple Silicon">
+                        <i class="fab fa-apple"></i> Download for Apple Silicon
+                    </a>
+                    <a href="https://github.com/zeeshan1112/StayActive/releases/download/v1.0.0/StayActive_1.0.0_Intel.dmg" class="button secondary-button download-button" data-os="Intel Mac">
+                        <i class="fas fa-desktop"></i> Download for Intel Mac
+                    </a>
+                    <p class="download-note">Version 1.0.0 | Check your Mac's chip on the <a href="https://github.com/zeeshan1112/StayActive#installation" target="_blank">GitHub README</a></p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="mockup.png" alt="StayActive Screenshot" class="app-mockup">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="features" class="section features-grid-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose StayActive?</h2>
+                <p class="section-subtitle">Engineered for seamless integration and maximum efficiency on macOS.</p>
+                <div class="grid features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-eye-slash feature-icon"></i>
+                        <h3>Completely Discreet</h3>
+                        <p>Works silently in the background without any visible cursor movements or intrusive notifications. Your workflow remains uninterrupted.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bolt feature-icon"></i>
+                        <h3>Feather-Light</h3>
+                        <p>Built for minimal resource consumption. StayActive runs quietly, ensuring your Mac's performance isn't compromised.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-battery-half feature-icon"></i>
+                        <h3>System Optimized</h3>
+                        <p>Designed and optimized specifically for macOS, providing reliable and stable operation across all supported versions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-lock feature-icon"></i>
+                        <h3>Privacy First</h3>
+                        <p>No data collection, no network activity. Your privacy is paramount. StayActive simply does its job, locally.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="setup-guide" class="section setup-section">
+            <div class="container">
+                <h2 class="section-title">Getting Started</h2>
+                <p class="section-subtitle">A simple, one-time setup ensures smooth operation.</p>
+                <div class="setup-content">
+                    <p>For StayActive to function correctly, granting **Accessibility permission** is crucial. This allows it to simulate activity and prevent idle sleep.</p>
+                    <a href="https://github.com/zeeshan1112/StayActive#important-setup-steps" target="_blank" class="button outline-button">
+                        <i class="fas fa-book"></i> View Detailed Setup Guide
+                    </a>
+                    <p class="small-text">This guide covers initial launch bypasses (Gatekeeper) and essential permissions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="support-us" class="section support-section">
+            <div class="container">
+                <h2 class="section-title">Support StayActive</h2>
+                <p class="section-subtitle">Your contribution fuels future improvements and new features.</p>
+                <a href="https://www.buymeacoffee.com/yourusername" target="_blank" class="button support-button">
+                    <i class="fas fa-mug-hot"></i> Buy Me a Coffee!
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title">Reach Out</h2>
+                <p class="section-subtitle">Have questions, suggestions, or just want to say hello?</p>
+
+                <form action="YOUR_FORMSPREE_FORM_ENDPOINT_URL" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="_replyto" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" rows="6" placeholder="I love StayActive!" required></textarea>
+                    </div>
+
+                    <button type="submit" class="button primary-button send-button">Send Message</button>
+                </form>
+
+                <p class="contact-alternative">
+                    For technical issues or feature requests, consider <a href="https://github.com/zeeshan1112/StayActive/issues" target="_blank">opening an Issue on GitHub</a>.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Zeeshan Ahmad. All rights reserved.</p>
+            <p>
+                <a href="https://github.com/zeeshan1112/StayActive" target="_blank">GitHub Repository</a>
+                </p>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        const downloadButtons = document.querySelectorAll('.download-button');
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const osType = button.getAttribute('data-os');
+                gtag('event', 'download_click', {
+                    'os_version': osType
+                });
+                console.log(`Download click tracked for: ${osType}`);
+            });
+        });
+
+        // --- Image Modal JavaScript ---
+        const imageModal = document.getElementById("imageModal");
+        const appMockup = document.querySelector(".app-mockup");
+        const modalImage = document.getElementById("modalImage");
+        const closeButton = document.getElementsByClassName("close-button")[0];
+
+        // When the user clicks the app mockup, open the modal
+        appMockup.addEventListener('click', function() {
+            imageModal.style.display = "flex"; // Use flex to center content
+            modalImage.src = this.src; // Set the modal image source to the clicked image's source
+        });
+
+        // When the user clicks on (x), close the modal
+        closeButton.addEventListener('click', function() {
+            imageModal.style.display = "none";
+        });
+
+        // When the user clicks anywhere outside the image (on the modal overlay), close it
+        imageModal.addEventListener('click', function(event) {
+            if (event.target === imageModal) {
+                imageModal.style.display = "none";
+            }
+        });
+
+        // Optional: Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && imageModal.style.display === 'flex') {
+                imageModal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

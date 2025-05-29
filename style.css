@@ -1,0 +1,583 @@
+/* Custom Properties (CSS Variables) - Define your color palette and spacing here */
+:root {
+    --primary-dark: #1a202c; /* Deep charcoal for backgrounds */
+    --primary-light: #2d3748; /* Slightly lighter charcoal */
+    --accent-blue: #007aff;  /* Vibrant blue for highlights */
+    --accent-blue-hover: #005bb5;
+    --text-light: #e2e8f0;   /* Light gray for general text on dark backgrounds */
+    --text-dark: #2d3748;    /* Darker text for white backgrounds */
+    --heading-color-dark: #1a1a1a; /* Explicit dark heading for light backgrounds */
+    --heading-color-light: #f7fafc; /* Near white for headings on dark backgrounds */
+    --card-background: #ffffff; /* White background for cards/forms */
+    --border-color: #e2e8f0; /* Light border for subtle separation */
+    --shadow-soft: rgba(0, 0, 0, 0.08); /* Soft shadow for cards */
+    --shadow-medium: rgba(0, 0, 0, 0.15); /* Medium shadow for interactive elements */
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 32px;
+    --spacing-lg: 64px;
+    --spacing-xl: 96px;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-family-primary);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-dark); /* Dark background for overall page */
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* Base heading color - will be overridden by specific sections */
+    color: var(--heading-color-light); 
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+h1 { font-size: 3.8em; letter-spacing: -0.04em; }
+h2 { font-size: 2.8em; margin-bottom: var(--spacing-md); }
+h3 { font-size: 1.8em; }
+p { margin-bottom: 1em; }
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+a:hover {
+    color: var(--accent-blue-hover);
+    text-decoration: underline;
+}
+
+/* Section Common Styles */
+.section {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.8em;
+    font-weight: 800; /* Extra bold for impact */
+    margin-bottom: var(--spacing-sm);
+    /* Default color for dark background sections */
+    color: var(--heading-color-light); 
+}
+
+.section-subtitle {
+    font-size: 1.3em;
+    /* Default color for dark background sections */
+    color: var(--text-light); 
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg);
+    line-height: 1.5;
+}
+
+/* Header / Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+    padding: var(--spacing-xl) 0;
+    position: relative;
+    overflow: hidden; /* To contain potential absolute elements or shadows */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centered alignment for vertical stack */
+    gap: var(--spacing-lg);
+    text-align: center;
+}
+
+.hero-text {
+    max-width: 700px;
+    z-index: 10;
+}
+
+.app-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 30%;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    margin-bottom: var(--spacing-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff; /* Ensure icon has a solid background if it's transparent */
+    padding: 10px; /* Small padding inside the rounded border */
+}
+
+.app-icon:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.hero-section h1 {
+    font-size: 5em;
+    font-weight: 900;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    line-height: 1.1;
+    color: #fff; /* White for main title */
+}
+
+.tagline {
+    font-size: 1.8em;
+    font-weight: 500;
+    color: #b0c4de; /* Softer text color */
+    margin-bottom: var(--spacing-md);
+}
+
+.description {
+    font-size: 1.2em;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 700px; /* Control max width of mockup */
+    margin-top: var(--spacing-lg);
+    z-index: 5;
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+/* **UPDATED MOCKUP ANIMATION** */
+.app-mockup {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px var(--shadow-medium);
+    /* Removed initial 3D transform for a flatter, more modern look */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Slightly faster transition */
+}
+
+.app-mockup:hover {
+    transform: translateY(-8px) scale(1.03); /* Lifts and slightly enlarges */
+    box-shadow: 0 35px 85px rgba(0, 0, 0, 0.4); /* More prominent shadow for depth */
+}
+
+/* Buttons */
+.button {
+    display: inline-flex; /* Keep as inline-flex for default block behavior outside flex containers */
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    border-radius: 10px; /* More rounded */
+    font-size: 1.2em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth ease-out */
+    border: 2px solid transparent;
+    cursor: pointer;
+    /* Focus styles */
+    outline: none;
+}
+
+.button:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 3px;
+}
+
+.button i {
+    margin-right: var(--spacing-sm);
+    font-size: 1.1em;
+}
+
+.primary-button {
+    background-color: var(--accent-blue);
+    color: #fff; /* Ensure text is white */
+    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+}
+
+/* **FIX FOR DOWNLOAD BUTTON HOVER ISSUE** */
+/* Explicitly set color for text AND icon on hover to prevent override */
+.primary-button:hover {
+    background-color: var(--accent-blue-hover);
+    color: #fff; /* Re-confirm text is white on hover */
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 10px 25px rgba(0, 122, 255, 0.5);
+}
+
+.primary-button:hover i { /* Ensure icon color stays white */
+    color: #fff;
+}
+
+
+.secondary-button {
+    background-color: transparent;
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
+}
+
+.secondary-button:hover {
+    background-color: var(--accent-blue);
+    color: #fff;
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 6px 15px rgba(0, 122, 255, 0.4);
+}
+
+.download-note {
+    font-size: 0.95em;
+    color: #a0aec0;
+    margin-top: var(--spacing-md);
+}
+
+/* Features Grid Section - **CONTRAST FIXES APPLIED HERE** */
+.features-grid-section {
+    background-color: var(--card-background); /* White background for contrast */
+    color: var(--text-dark); /* Default text color for this section */
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+.features-grid-section .section-title {
+    color: var(--heading-color-dark); /* Dark heading for white background */
+}
+
+.features-grid-section .section-subtitle {
+    color: var(--text-dark); /* Dark subtitle for white background */
+}
+
+/* **UPDATED FEATURE GRID LAYOUT FOR 2 TILES PER ROW** */
+.features-grid {
+    display: grid;
+    /* Force 2 columns for larger screens to ensure 2x2 layout */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: var(--spacing-md);
+    text-align: left;
+    max-width: 900px; /* Constrain width for better centering */
+    margin: 0 auto; /* Center the grid container */
+}
+
+.feature-card {
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color); /* Subtle border */
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px var(--shadow-medium);
+}
+
+.feature-icon {
+    font-size: 3em;
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 1.6em;
+    margin-bottom: var(--spacing-xs);
+    color: var(--heading-color-dark); /* Dark heading for feature cards */
+}
+
+.feature-card p {
+    font-size: 1.05em;
+    color: #666; /* This color is fine on white */
+}
+
+/* Setup Guide Section */
+.setup-section {
+    background-color: var(--primary-light);
+    color: var(--text-light);
+}
+
+.setup-section .section-title,
+.setup-section .section-subtitle {
+    color: var(--heading-color-light); /* Light heading for dark background */
+}
+
+.setup-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.2); /* Slightly transparent background */
+    padding: var(--spacing-md);
+    border-radius: 12px;
+}
+
+.setup-content p {
+    font-size: 1.15em;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.outline-button {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+.outline-button:hover {
+    background-color: #fff;
+    color: var(--primary-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+}
+
+.small-text {
+    font-size: 0.9em;
+    color: #a0aec0;
+    margin-top: var(--spacing-sm);
+}
+
+/* Support Section */
+.support-section {
+    background-color: var(--primary-dark); /* Keep dark for consistency with hero */
+    color: var(--text-light);
+}
+
+.support-section .section-title,
+.support-section .section-subtitle {
+    color: var(--heading-color-light); /* Light heading for dark background */
+}
+
+.support-button {
+    background-color: #FFDD00; /* Buy Me a Coffee yellow */
+    color: #000;
+    box-shadow: 0 6px 20px rgba(255, 221, 0, 0.4);
+}
+
+.support-button:hover {
+    background-color: #e6c800;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255, 221, 0, 0.5);
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--primary-light);
+    color: var(--text-light);
+}
+
+.contact-section .section-title,
+.contact-section .section-subtitle {
+    color: var(--heading-color-light); /* Light heading for dark background */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    background: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-soft);
+    text-align: left;
+    color: var(--text-dark); /* Ensure dark text on white form background */
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--heading-color-dark); /* Dark label for white background */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: var(--font-family-primary);
+    background-color: #f7fafc; /* Light input background */
+    color: var(--text-dark);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none; /* Remove default blue outline */
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2); /* Custom focus ring */
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.send-button {
+    width: auto;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    margin-top: var(--spacing-sm);
+}
+
+.contact-alternative {
+    margin-top: var(--spacing-md);
+    font-size: 0.95em;
+    color: #a0aec0;
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    padding: var(--spacing-md) 0;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer a {
+    color: var(--accent-blue);
+}
+
+.site-footer a:hover {
+    color: #fff;
+}
+
+/* --- Image Modal Styles --- */
+.modal {
+    display: none; /* Hidden by default. JS will set to 'flex' when open. */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    /* When JS applies display:flex, these will center the content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* Add Animation */
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Responsive Design */
+@media (min-width: 769px) {
+    .hero-content {
+        flex-direction: row; /* Horizontal layout on larger screens */
+        text-align: left;
+        align-items: center; /* ALIGNMENT FIX: Center content vertically */
+        gap: var(--spacing-xl);
+    }
+    .hero-text {
+        flex: 1; /* Take available space */
+        max-width: none;
+    }
+    .hero-image {
+        flex: 1; /* Take available space */
+        margin-top: 0;
+        max-width: 50%; /* Adjust as needed */
+    }
+    .hero-section h1 {
+        font-size: 4.5em; /* Adjust for larger screens */
+    }
+    .tagline {
+        font-size: 1.6em;
+    }
+    .description {
+        font-size: 1.2em;
+    }
+    .download-cta {
+        display: flex; /* Make buttons side-by-side */
+        justify-content: flex-start; /* Align to left */
+        flex-wrap: wrap; /* Allow wrapping on smaller desktop widths */
+        gap: var(--spacing-sm); /* **NEW: Add gap between flex items (buttons)** */
+    }
+    .download-note {
+        flex-basis: 100%; /* Make note take full width below buttons */
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 3em; }
+    h2 { font-size: 2.2em; }
+    .hero-section { padding: var(--spacing-lg) 0; }
+    .app-icon { width: 100px; height: 100px; }
+
+    .button {
+        padding: 12px 25px;
+        font-size: 1em;
+        margin: var(--spacing-xs) 0; /* Stack buttons vertically with margin */
+        width: 100%; /* Full width buttons */
+    }
+    .download-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xs); /* Also add a small gap for consistency on mobile */
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr; /* Stack features on small screens */
+    }
+    .feature-card {
+        text-align: center;
+    }
+    .feature-icon {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-form {
+        padding: var(--spacing-md) var(--spacing-sm); /* More padding on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+    .section-subtitle { font-size: 1.1em; }
+    .button { font-size: 0.95em; }
+    .hero-section { padding: var(--spacing-md) 0; }
+}
