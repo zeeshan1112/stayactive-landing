@@ -18,6 +18,12 @@
     --spacing-md: 32px;
     --spacing-lg: 64px;
     --spacing-xl: 96px;
+
+    /* NEW: Mobile-specific spacing adjustments */
+    --spacing-mobile-xs: 4px;
+    --spacing-mobile-sm: 10px;
+    --spacing-mobile-md: 20px;
+    --spacing-mobile-lg: 40px;
 }
 
 /* Base Styles */
@@ -26,7 +32,7 @@ body {
     line-height: 1.7;
     margin: 0;
     padding: 0;
-    background-color: var(--primary-dark); /* Dark background for overall page */
+    background-color: var(--primary-dark);
     color: var(--text-light);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -35,18 +41,19 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    /* Use responsive padding for container */
     padding: 0 var(--spacing-md);
 }
 
 h1, h2, h3, h4, h5, h6 {
-    /* Base heading color - will be overridden by specific sections */
-    color: var(--heading-color-light); 
+    color: var(--heading-color-light);
     font-weight: 700;
     margin-top: 0;
     margin-bottom: var(--spacing-sm);
     line-height: 1.2;
 }
 
+/* Base heading sizes (desktop first) */
 h1 { font-size: 3.8em; letter-spacing: -0.04em; }
 h2 { font-size: 2.8em; margin-bottom: var(--spacing-md); }
 h3 { font-size: 1.8em; }
@@ -64,22 +71,21 @@ a:hover {
 
 /* Section Common Styles */
 .section {
+    /* Use responsive padding for sections */
     padding: var(--spacing-xl) 0;
     text-align: center;
 }
 
 .section-title {
     font-size: 2.8em;
-    font-weight: 800; /* Extra bold for impact */
+    font-weight: 800;
     margin-bottom: var(--spacing-sm);
-    /* Default color for dark background sections */
-    color: var(--heading-color-light); 
+    color: var(--heading-color-light);
 }
 
 .section-subtitle {
     font-size: 1.3em;
-    /* Default color for dark background sections */
-    color: var(--text-light); 
+    color: var(--text-light);
     max-width: 700px;
     margin: 0 auto var(--spacing-lg);
     line-height: 1.5;
@@ -88,15 +94,17 @@ a:hover {
 /* Header / Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+    /* Use responsive padding for hero section */
     padding: var(--spacing-xl) 0;
     position: relative;
-    overflow: hidden; /* To contain potential absolute elements or shadows */
+    overflow: hidden;
 }
 
 .hero-content {
     display: flex;
+    /* Initial flex-direction: column for mobile-first approach */
     flex-direction: column;
-    align-items: center; /* Centered alignment for vertical stack */
+    align-items: center;
     gap: var(--spacing-lg);
     text-align: center;
 }
@@ -113,8 +121,8 @@ a:hover {
     box-shadow: 0 10px 30px var(--shadow-medium);
     margin-bottom: var(--spacing-sm);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff; /* Ensure icon has a solid background if it's transparent */
-    padding: 10px; /* Small padding inside the rounded border */
+    background-color: #fff;
+    padding: 10px;
 }
 
 .app-icon:hover {
@@ -128,13 +136,13 @@ a:hover {
     margin-top: 0.1em;
     margin-bottom: 0.1em;
     line-height: 1.1;
-    color: #fff; /* White for main title */
+    color: #fff;
 }
 
 .tagline {
     font-size: 1.8em;
     font-weight: 500;
-    color: #b0c4de; /* Softer text color */
+    color: #b0c4de;
     margin-bottom: var(--spacing-md);
 }
 
@@ -146,42 +154,41 @@ a:hover {
 
 .hero-image {
     width: 100%;
-    max-width: 700px; /* Control max width of mockup */
+    max-width: 700px;
     margin-top: var(--spacing-lg);
     z-index: 5;
-    cursor: pointer; /* Indicate it's clickable */
+    cursor: pointer;
 }
 
-/* **UPDATED MOCKUP ANIMATION** */
 .app-mockup {
     width: 100%;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 20px 60px var(--shadow-medium);
-    /* Removed initial 3D transform for a flatter, more modern look */
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Slightly faster transition */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
 }
 
 .app-mockup:hover {
-    transform: translateY(-8px) scale(1.03); /* Lifts and slightly enlarges */
-    box-shadow: 0 35px 85px rgba(0, 0, 0, 0.4); /* More prominent shadow for depth */
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 35px 85px rgba(0, 0, 0, 0.4);
 }
 
 /* Buttons */
 .button {
-    display: inline-flex; /* Keep as inline-flex for default block behavior outside flex containers */
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Center content horizontally */
     padding: 16px 36px;
-    border-radius: 10px; /* More rounded */
-    font-size: 1.2em;
+    border-radius: 10px;
+    font-size: 1.2em; /* Base font size for desktop */
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth ease-out */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 2px solid transparent;
     cursor: pointer;
-    /* Focus styles */
     outline: none;
+    white-space: nowrap; /* Prevent button text from wrapping */
+    box-sizing: border-box; /* Crucial for responsive width calculations */
 }
 
 .button:focus-visible {
@@ -192,27 +199,25 @@ a:hover {
 .button i {
     margin-right: var(--spacing-sm);
     font-size: 1.1em;
+    flex-shrink: 0; /* Prevent icon from shrinking on smaller buttons */
 }
 
 .primary-button {
     background-color: var(--accent-blue);
-    color: #fff; /* Ensure text is white */
+    color: #fff;
     box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
 }
 
-/* **FIX FOR DOWNLOAD BUTTON HOVER ISSUE** */
-/* Explicitly set color for text AND icon on hover to prevent override */
 .primary-button:hover {
     background-color: var(--accent-blue-hover);
-    color: #fff; /* Re-confirm text is white on hover */
+    color: #fff;
     transform: translateY(-4px) scale(1.01);
     box-shadow: 0 10px 25px rgba(0, 122, 255, 0.5);
 }
 
-.primary-button:hover i { /* Ensure icon color stays white */
+.primary-button:hover i {
     color: #fff;
 }
-
 
 .secondary-button {
     background-color: transparent;
@@ -228,37 +233,55 @@ a:hover {
     box-shadow: 0 6px 15px rgba(0, 122, 255, 0.4);
 }
 
+/* NEW: Styles for the download buttons container */
+.download-cta {
+    display: flex; /* Use flexbox */
+    flex-direction: row; /* Default to row for desktop-first */
+    justify-content: flex-start; /* Align to start on desktop */
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+    gap: var(--spacing-sm); /* Gap between buttons */
+    margin-top: var(--spacing-md); /* Consistent margin */
+    /* Removed max-width here as it will be handled by container or by media query */
+}
+
+.download-cta .button {
+    flex-grow: 0; /* Don't allow buttons to grow */
+    flex-shrink: 0; /* Don't allow buttons to shrink */
+    /* Remove fixed width or 100% width here, let content dictate for desktop */
+}
+
 .download-note {
     font-size: 0.95em;
     color: #a0aec0;
     margin-top: var(--spacing-md);
+    text-align: left; /* Align to left on desktop */
+    flex-basis: 100%; /* Ensure it takes full width below buttons */
 }
 
-/* Features Grid Section - **CONTRAST FIXES APPLIED HERE** */
+/* Features Grid Section */
 .features-grid-section {
-    background-color: var(--card-background); /* White background for contrast */
-    color: var(--text-dark); /* Default text color for this section */
+    background-color: var(--card-background);
+    color: var(--text-dark);
     padding-top: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
 }
 
 .features-grid-section .section-title {
-    color: var(--heading-color-dark); /* Dark heading for white background */
+    color: var(--heading-color-dark);
 }
 
 .features-grid-section .section-subtitle {
-    color: var(--text-dark); /* Dark subtitle for white background */
+    color: var(--text-dark);
 }
 
-/* **UPDATED FEATURE GRID LAYOUT FOR 2 TILES PER ROW** */
 .features-grid {
     display: grid;
-    /* Force 2 columns for larger screens to ensure 2x2 layout */
-    grid-template-columns: repeat(2, 1fr); 
+    /* Default to 2 columns for larger screens (desktop first) */
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
     text-align: left;
-    max-width: 900px; /* Constrain width for better centering */
-    margin: 0 auto; /* Center the grid container */
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .feature-card {
@@ -267,7 +290,7 @@ a:hover {
     border-radius: 12px;
     box-shadow: 0 8px 25px var(--shadow-soft);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-color); /* Subtle border */
+    border: 1px solid var(--border-color);
 }
 
 .feature-card:hover {
@@ -285,12 +308,12 @@ a:hover {
 .feature-card h3 {
     font-size: 1.6em;
     margin-bottom: var(--spacing-xs);
-    color: var(--heading-color-dark); /* Dark heading for feature cards */
+    color: var(--heading-color-dark);
 }
 
 .feature-card p {
     font-size: 1.05em;
-    color: #666; /* This color is fine on white */
+    color: #666;
 }
 
 /* Setup Guide Section */
@@ -301,13 +324,13 @@ a:hover {
 
 .setup-section .section-title,
 .setup-section .section-subtitle {
-    color: var(--heading-color-light); /* Light heading for dark background */
+    color: var(--heading-color-light);
 }
 
 .setup-content {
     max-width: 800px;
     margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.2); /* Slightly transparent background */
+    background-color: rgba(0, 0, 0, 0.2);
     padding: var(--spacing-md);
     border-radius: 12px;
 }
@@ -339,17 +362,17 @@ a:hover {
 
 /* Support Section */
 .support-section {
-    background-color: var(--primary-dark); /* Keep dark for consistency with hero */
+    background-color: var(--primary-dark);
     color: var(--text-light);
 }
 
 .support-section .section-title,
 .support-section .section-subtitle {
-    color: var(--heading-color-light); /* Light heading for dark background */
+    color: var(--heading-color-light);
 }
 
 .support-button {
-    background-color: #FFDD00; /* Buy Me a Coffee yellow */
+    background-color: #FFDD00;
     color: #000;
     box-shadow: 0 6px 20px rgba(255, 221, 0, 0.4);
 }
@@ -368,7 +391,7 @@ a:hover {
 
 .contact-section .section-title,
 .contact-section .section-subtitle {
-    color: var(--heading-color-light); /* Light heading for dark background */
+    color: var(--heading-color-light);
 }
 
 .contact-form {
@@ -379,7 +402,7 @@ a:hover {
     border-radius: 12px;
     box-shadow: 0 8px 25px var(--shadow-soft);
     text-align: left;
-    color: var(--text-dark); /* Ensure dark text on white form background */
+    color: var(--text-dark);
 }
 
 .form-group {
@@ -390,7 +413,7 @@ a:hover {
     display: block;
     margin-bottom: var(--spacing-xs);
     font-weight: 600;
-    color: var(--heading-color-dark); /* Dark label for white background */
+    color: var(--heading-color-dark);
 }
 
 .contact-form input[type="text"],
@@ -402,17 +425,17 @@ a:hover {
     border-radius: 8px;
     font-size: 1em;
     font-family: var(--font-family-primary);
-    background-color: #f7fafc; /* Light input background */
+    background-color: #f7fafc;
     color: var(--text-dark);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    outline: none; /* Remove default blue outline */
+    outline: none;
 }
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
 .contact-form textarea:focus {
     border-color: var(--accent-blue);
-    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2); /* Custom focus ring */
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
 }
 
 .contact-form textarea {
@@ -452,18 +475,17 @@ a:hover {
 
 /* --- Image Modal Styles --- */
 .modal {
-    display: none; /* Hidden by default. JS will set to 'flex' when open. */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-    /* When JS applies display:flex, these will center the content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
@@ -475,13 +497,11 @@ a:hover {
     animation-duration: 0.6s;
 }
 
-/* Add Animation */
 @keyframes zoom {
     from {transform:scale(0)}
     to {transform:scale(1)}
 }
 
-/* Close button */
 .close-button {
     position: absolute;
     top: 20px;
@@ -501,12 +521,16 @@ a:hover {
 }
 
 
-/* Responsive Design */
+/* --- Responsive Design (Desktop First Approach) --- */
+
+/* Default styles (outside media queries) are for desktop/larger screens (laptop first priority) */
+
+/* Specific desktop adjustments for hero section */
 @media (min-width: 769px) {
     .hero-content {
         flex-direction: row; /* Horizontal layout on larger screens */
         text-align: left;
-        align-items: center; /* ALIGNMENT FIX: Center content vertically */
+        align-items: center; /* Center content vertically */
         gap: var(--spacing-xl);
     }
     .hero-text {
@@ -527,57 +551,171 @@ a:hover {
     .description {
         font-size: 1.2em;
     }
+    /* Download CTA on desktop already set to row via default, just ensure gap */
     .download-cta {
-        display: flex; /* Make buttons side-by-side */
-        justify-content: flex-start; /* Align to left */
-        flex-wrap: wrap; /* Allow wrapping on smaller desktop widths */
-        gap: var(--spacing-sm); /* **NEW: Add gap between flex items (buttons)** */
+        gap: var(--spacing-sm); /* Ensure gap is set for desktop */
+    }
+    .download-cta .button {
+        /* No specific width needed, content dictates size */
+        width: auto;
     }
     .download-note {
         flex-basis: 100%; /* Make note take full width below buttons */
         text-align: left;
+        max-width: none; /* No max-width constraint on desktop */
     }
 }
 
+/* --- Mobile-Specific Styles (max-width breakpoints) --- */
+
 @media (max-width: 768px) {
+    /* General Mobile Spacing & Font Sizes */
+    .container {
+        padding: 0 var(--spacing-mobile-sm); /* Smaller padding on mobile */
+    }
+    .section {
+        padding: var(--spacing-mobile-lg) 0; /* Smaller section padding on mobile */
+    }
     h1 { font-size: 3em; }
     h2 { font-size: 2.2em; }
-    .hero-section { padding: var(--spacing-lg) 0; }
-    .app-icon { width: 100px; height: 100px; }
+    h3 { font-size: 1.5em; } /* Smaller h3 for mobile */
+    .section-title { font-size: 2em; }
+    .section-subtitle { font-size: 1.1em; margin-bottom: var(--spacing-mobile-md); }
+    .tagline { font-size: 1.5em; }
+    .description { font-size: 1em; margin-bottom: var(--spacing-mobile-lg); }
 
-    .button {
-        padding: 12px 25px;
-        font-size: 1em;
-        margin: var(--spacing-xs) 0; /* Stack buttons vertically with margin */
-        width: 100%; /* Full width buttons */
+    /* Hero Section Mobile Adjustments */
+    .hero-section { padding: var(--spacing-mobile-lg) 0; }
+    .hero-content {
+        gap: var(--spacing-mobile-md); /* Smaller gap for mobile hero content */
     }
+    .app-icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: var(--spacing-mobile-xs); /* Adjust margin */
+    }
+    .hero-section h1 {
+        font-size: 3.5em; /* Slightly larger h1 for mobile */
+    }
+    .hero-image {
+        margin-top: var(--spacing-mobile-lg); /* Adjust margin */
+    }
+
+    /* --- Download Buttons (CRITICAL MOBILE FIX) --- */
     .download-cta {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: var(--spacing-xs); /* Also add a small gap for consistency on mobile */
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center them horizontally */
+        gap: var(--spacing-mobile-sm); /* Gap between stacked buttons */
+        width: 100%; /* Ensure container takes full width */
+        max-width: 350px; /* Optional: constrain overall button group width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .download-cta .button {
+        width: 100%; /* Make buttons full width of the download-cta container */
+        max-width: 300px; /* Optional: Set a max-width for individual buttons to prevent stretching too wide */
+        padding: 14px 25px; /* Slightly smaller padding for mobile buttons */
+        font-size: 1em; /* Smaller font size for mobile buttons */
+    }
+    .download-note {
+        text-align: center; /* Center note on mobile */
+        margin-top: var(--spacing-mobile-md); /* Adjust margin */
+        max-width: 90%; /* Constrain width of note on mobile */
     }
 
+    /* Features Grid Mobile Adjustments */
     .features-grid {
-        grid-template-columns: 1fr; /* Stack features on small screens */
+        grid-template-columns: 1fr; /* Stack features in a single column */
+        gap: var(--spacing-mobile-md); /* Smaller gap for feature cards */
     }
     .feature-card {
         text-align: center;
+        padding: var(--spacing-mobile-md); /* Adjust padding */
     }
     .feature-icon {
         margin-left: auto;
         margin-right: auto;
     }
+    .feature-card h3 {
+        font-size: 1.4em; /* Adjust feature heading size */
+    }
+    .feature-card p {
+        font-size: 0.95em; /* Adjust feature text size */
+    }
 
+    /* Setup Content Mobile Adjustments */
+    .setup-content {
+        padding: var(--spacing-mobile-md); /* Adjust padding */
+    }
+    .setup-content p {
+        font-size: 1.05em; /* Adjust text size */
+    }
+    .outline-button {
+        padding: 14px 28px; /* Adjust button padding */
+        font-size: 1em; /* Adjust font size */
+    }
+    .small-text {
+        font-size: 0.85em; /* Adjust text size */
+        margin-top: var(--spacing-mobile-sm); /* Adjust margin */
+    }
+
+    /* Contact Form Mobile Adjustments */
     .contact-form {
-        padding: var(--spacing-md) var(--spacing-sm); /* More padding on small screens */
+        padding: var(--spacing-mobile-md); /* Adjust padding */
+    }
+    .form-group {
+        margin-bottom: var(--spacing-mobile-md); /* Adjust margin */
+    }
+    .contact-form label {
+        margin-bottom: var(--spacing-mobile-xs); /* Adjust margin */
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        padding: 10px; /* Smaller input padding */
+        font-size: 0.95em; /* Smaller input font size */
+    }
+    .contact-form textarea {
+        min-height: 100px; /* Smaller min-height for textarea */
+    }
+    .send-button {
+        padding: 10px 25px; /* Smaller send button padding */
+        font-size: 1em; /* Smaller send button font size */
+        margin-top: var(--spacing-mobile-sm); /* Adjust margin */
+    }
+    .contact-alternative {
+        margin-top: var(--spacing-mobile-md); /* Adjust margin */
+        font-size: 0.9em; /* Adjust font size */
+    }
+
+    /* Footer Mobile Adjustments */
+    .site-footer {
+        padding: var(--spacing-mobile-md) 0; /* Adjust padding */
+        font-size: 0.8em; /* Smaller font size */
     }
 }
 
+/* Even Smaller Mobile Screens (e.g., old phones) */
 @media (max-width: 480px) {
-    h1 { font-size: 2.5em; }
-    h2 { font-size: 1.8em; }
-    .section-subtitle { font-size: 1.1em; }
-    .button { font-size: 0.95em; }
-    .hero-section { padding: var(--spacing-md) 0; }
+    h1 { font-size: 2.8em; } /* Further reduce h1 */
+    h2 { font-size: 2em; } /* Further reduce h2 */
+    .section-title { font-size: 1.8em; }
+    .section-subtitle { font-size: 1em; }
+    .hero-section h1 { font-size: 3em; } /* Adjust hero h1 again */
+    .tagline { font-size: 1.3em; }
+    .description { font-size: 0.9em; }
+
+    .button {
+        padding: 12px 20px; /* Even smaller button padding */
+        font-size: 0.9em; /* Even smaller button font size */
+    }
+    .download-cta .button {
+        max-width: 250px; /* Constrain max width more for very small screens */
+    }
+    .feature-card h3 {
+        font-size: 1.2em; /* Adjust feature heading size */
+    }
+    .feature-card p {
+        font-size: 0.9em; /* Adjust feature text size */
+    }
 }
