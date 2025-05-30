@@ -710,7 +710,7 @@ a:hover {
         font-size: 0.9em; /* Even smaller button font size */
     }
     .download-cta .button {
-        max-width: 250px; /* Constrain max width more for very small screens */
+        max-width: 280px; /* Constrain max width more for very small screens */
     }
     .feature-card h3 {
         font-size: 1.2em; /* Adjust feature heading size */
