@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zeeshan1112.github.io/stayactive-landing/sitemap.xml
